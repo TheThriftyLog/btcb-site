@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Between the Covers Bookshop</title>
+    <meta name="description" content="Between the Covers Bookshop — an independent bookshop in the Shops at Mud Queen, Harrisburg, PA. Curated new and used books, author events, and a community for readers.">
+    <meta name="keywords" content="bookshop, independent bookstore, Harrisburg PA, Shops at Mud Queen, new books, used books, book club, author events, Between the Covers">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Between the Covers Bookshop">
+    <meta property="og:description" content="An independent bookshop where every story finds its reader. Curated new and used books in the Shops at Mud Queen, Harrisburg, PA.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://betweenthecoversbookshop.com">
+    <meta property="og:image" content="https://betweenthecoversbookshop.com/assets/emblem.svg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Between the Covers Bookshop">
+    <meta name="twitter:description" content="An independent bookshop where every story finds its reader.">
+    
+    <!-- Favicon (placeholder - replace with actual favicon) -->
+    <link rel="icon" type="image/svg+xml" href="assets/BTCB_Colored_Smaller_SVG.svg">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://betweenthecoversbookshop.com">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ========================================
+           COLOR PALETTE — from the BTCB logo
+           ======================================== */
+        :root {
+            /* Deep burgundy/wine */
+            --wine-darkest:  #3b0e13;
+            --wine-dark:     #5c1d25;
+            --wine:          #943039;
+            --wine-mid:      #9c3a43;
+            --wine-light:    #c96d76;
+            --wine-blush:    #c77b82;
+            
+            /* Warm golds */
+            --gold-dark:     #755631;
+            --gold:          #ab8933;
+            --gold-mid:      #d0b366;
+            --gold-light:    #ddc176;
+            --gold-pale:     #c7b890;
+            
+            /* Dusty rose */
+            --rose:          #e3a6ac;
+            --rose-light:    #f3d7d6;
+            --rose-pale:     #fde0e0;
+            
+            /* Earth tones */
+            --earth-dark:    #312a2b;
+            --earth:         #685b53;
+            --earth-warm:    #9c655f;
+            --earth-light:   #ac9892;
+            --earth-sand:    #ceb3b3;
+            
+            /* Near-black */
+            --ink:           #070406;
+            
+            /* Cream/paper tones */
+            --paper:         #faf5ef;
+            --paper-warm:    #f5ece0;
+            --paper-aged:    #ede3d3;
+            
+            /* Typography */
+            --font-display:  'Playfair Display', Georgia, serif;
+            --font-body:     'Lora', 'Palatino Linotype', Palatino, serif;
+            --font-accent:   'Cormorant Garamond', Garamond, serif;
+            
+            /* Spacing */
+            --gap: clamp(1rem, 3vw, 2.5rem);
+        }
+
+        /* ========================================
+           RESET & BASE
+           ======================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--earth-dark);
+            background: var(--paper);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img, svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: var(--wine);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--gold);
+        }
+
+        /* ========================================
+           TEXTURE OVERLAY — paper/grain feel
+           ======================================== */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 200px;
+        }
+
+        /* ========================================
+           NAVIGATION
+           ======================================== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.5s ease;
+        }
+        .nav.scrolled {
+            background: rgba(250, 245, 239, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(59, 14, 19, 0.08);
+            padding: 0.6rem 2rem;
+        }
+        .nav-logo {
+            height: 40px;
+            width: auto;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .nav.scrolled .nav-logo {
+            opacity: 1;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            font-family: var(--font-accent);
+            font-size: 1.05rem;
+            letter-spacing: 0.03em;
+        }
+        .nav-links a {
+            color: var(--earth-dark);
+            position: relative;
+            padding-bottom: 2px;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-links a:hover {
+            color: var(--wine);
+        }
+
+        /* Mobile hamburger */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--earth-dark);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* ========================================
+           HERO SECTION
+           ======================================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+            background: 
+                radial-gradient(ellipse at 20% 80%, rgba(221, 193, 118, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(148, 48, 57, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(250, 245, 239, 1) 0%, rgba(237, 227, 211, 0.6) 100%);
+        }
+
+        /* Decorative book corner flourishes */
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            opacity: 0.15;
+        }
+        .hero::before {
+            top: 2rem;
+            left: 2rem;
+            border-top: 2px solid var(--gold);
+            border-left: 2px solid var(--gold);
+        }
+        .hero::after {
+            bottom: 2rem;
+            right: 2rem;
+            border-bottom: 2px solid var(--gold);
+            border-right: 2px solid var(--gold);
+        }
+
+        .hero-emblem {
+            width: clamp(280px, 40vw, 500px);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.2s ease both;
+            filter: drop-shadow(0 4px 20px rgba(59, 14, 19, 0.1));
+        }
+
+        .hero-wordmark {
+            width: clamp(280px, 60vw, 700px);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1.2s ease 0.2s both;
+        }
+
+        .hero-tagline {
+            font-family: var(--font-accent);
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-style: italic;
+            color: var(--earth);
+            letter-spacing: 0.05em;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1.2s ease 0.4s both;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 1.2s ease 0.6s both;
+        }
+
+        .btn {
+            font-family: var(--font-accent);
+            font-size: 1.05rem;
+            letter-spacing: 0.08em;
+            padding: 0.85rem 2.2rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            text-transform: uppercase;
+        }
+        .btn-primary {
+            background: var(--wine);
+            color: var(--paper);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(221, 193, 118, 0.15), transparent);
+            transition: left 0.6s ease;
+        }
+        .btn-primary:hover {
+            background: var(--wine-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(92, 29, 37, 0.3);
+        }
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--wine);
+            border: 1.5px solid var(--gold-mid);
+        }
+        .btn-secondary:hover {
+            background: var(--gold-mid);
+            color: var(--paper);
+            transform: translateY(-2px);
+        }
+
+        /* Scroll indicator */
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: fadeInUp 1.2s ease 1s both;
+        }
+        .scroll-hint svg {
+            width: 24px;
+            height: 24px;
+            color: var(--earth-light);
+            animation: gentleBounce 2.5s ease-in-out infinite;
+        }
+
+        /* ========================================
+           DECORATIVE DIVIDER
+           ======================================== */
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            color: var(--gold-mid);
+        }
+        .divider::before,
+        .divider::after {
+            content: '';
+            width: 60px;
+            height: 1px;
+            background: var(--gold-mid);
+            opacity: 0.5;
+        }
+        .divider svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        /* ========================================
+           SECTION — ABOUT / WELCOME
+           ======================================== */
+        .section {
+            padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .welcome {
+            background: var(--paper-warm);
+            position: relative;
+        }
+        .welcome::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-mid), transparent);
+        }
+
+        .welcome-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 5vw, 5rem);
+            align-items: center;
+        }
+
+        .welcome-text h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--wine-dark);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        .welcome-text h2 em {
+            color: var(--gold);
+            font-style: italic;
+        }
+        .welcome-text p {
+            font-size: 1.05rem;
+            color: var(--earth);
+            margin-bottom: 1rem;
+            max-width: 520px;
+        }
+        .welcome-text .signature {
+            font-family: var(--font-accent);
+            font-style: italic;
+            color: var(--wine-mid);
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Decorative book stack illustration (SVG) */
+        .welcome-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .welcome-visual svg {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* ========================================
+           SECTION — WHAT WE OFFER (3 cards)
+           ======================================== */
+        .offerings {
+            position: relative;
+        }
+        .offerings::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-mid), transparent);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: clamp(2.5rem, 5vw, 4rem);
+        }
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 700;
+            color: var(--wine-dark);
+        }
+        .section-header p {
+            font-family: var(--font-accent);
+            font-style: italic;
+            color: var(--earth);
+            font-size: 1.15rem;
+            margin-top: 0.5rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+        }
+
+        .card {
+            background: var(--paper-warm);
+            border: 1px solid rgba(208, 179, 102, 0.2);
+            padding: 2.5rem 2rem;
+            position: relative;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--wine), var(--gold-mid));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(59, 14, 19, 0.08);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            color: var(--wine);
+            margin-bottom: 1.2rem;
+        }
+        .card h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--wine-dark);
+            margin-bottom: 0.75rem;
+        }
+        .card p {
+            color: var(--earth);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           SECTION — FEATURED / STAFF PICKS
+           ======================================== */
+        .staff-picks {
+            background: var(--wine-darkest);
+            color: var(--paper);
+            position: relative;
+            overflow: hidden;
+        }
+        .staff-picks::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 30% 70%, rgba(171, 137, 51, 0.07) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 30%, rgba(201, 109, 118, 0.05) 0%, transparent 50%);
+        }
+        .staff-picks-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem);
+            position: relative;
+        }
+
+        .staff-picks .section-header h2 {
+            color: var(--rose-light);
+        }
+        .staff-picks .section-header p {
+            color: var(--earth-sand);
+        }
+
+        .picks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .pick-card {
+            background: rgba(250, 245, 239, 0.04);
+            border: 1px solid rgba(208, 179, 102, 0.12);
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        .pick-card:hover {
+            background: rgba(250, 245, 239, 0.07);
+            border-color: rgba(208, 179, 102, 0.25);
+            transform: translateY(-3px);
+        }
+
+        .pick-card .book-spine {
+            width: 4px;
+            height: 50px;
+            border-radius: 2px;
+            margin-bottom: 1.2rem;
+        }
+        .pick-card:nth-child(1) .book-spine { background: var(--gold-mid); }
+        .pick-card:nth-child(2) .book-spine { background: var(--wine-light); }
+        .pick-card:nth-child(3) .book-spine { background: var(--earth-warm); }
+
+        .pick-card .book-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--rose-pale);
+            margin-bottom: 0.3rem;
+        }
+        .pick-card .book-author {
+            font-family: var(--font-accent);
+            font-style: italic;
+            color: var(--gold-mid);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .pick-card .book-note {
+            font-size: 0.9rem;
+            color: var(--earth-sand);
+            line-height: 1.7;
+            position: relative;
+            padding-left: 1rem;
+            border-left: 2px solid rgba(208, 179, 102, 0.2);
+        }
+        .pick-card .pick-by {
+            font-family: var(--font-accent);
+            font-style: italic;
+            color: var(--wine-blush);
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        /* ========================================
+           SECTION — VISIT US / MAP
+           ======================================== */
+        .visit {
+            position: relative;
+        }
+        .visit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-mid), transparent);
+        }
+
+        .visit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 5vw, 4rem);
+            align-items: start;
+        }
+
+        .visit-info h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 700;
+            color: var(--wine-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .visit-detail {
+            margin-bottom: 1.5rem;
+        }
+        .visit-detail h3 {
+            font-family: var(--font-accent);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gold-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.3rem;
+        }
+        .visit-detail p {
+            color: var(--earth);
+            font-size: 1rem;
+        }
+
+        .map-container {
+            border: 1px solid rgba(208, 179, 102, 0.3);
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 4/3;
+            background: var(--paper-aged);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .map-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--earth);
+            font-family: var(--font-accent);
+            font-style: italic;
+            gap: 1rem;
+        }
+        .map-placeholder svg {
+            width: 48px;
+            height: 48px;
+            color: var(--gold);
+        }
+
+        /* ========================================
+           NEWSLETTER / CTA STRIP
+           ======================================== */
+        .newsletter {
+            background: linear-gradient(135deg, var(--wine-dark), var(--wine-darkest));
+            color: var(--paper);
+            text-align: center;
+            padding: clamp(3rem, 6vw, 5rem) 2rem;
+            position: relative;
+        }
+        .newsletter::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(221, 193, 118, 0.06), transparent 70%);
+        }
+        .newsletter-inner {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .newsletter h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            color: var(--rose-light);
+            margin-bottom: 0.5rem;
+        }
+        .newsletter p {
+            font-family: var(--font-accent);
+            font-style: italic;
+            color: var(--earth-sand);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem 1.2rem;
+            border: 1px solid rgba(208, 179, 102, 0.3);
+            background: rgba(250, 245, 239, 0.08);
+            color: var(--paper);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .newsletter-form input::placeholder {
+            color: var(--earth-light);
+        }
+        .newsletter-form input:focus {
+            border-color: var(--gold-mid);
+        }
+        .newsletter-form button {
+            padding: 0.8rem 1.5rem;
+            background: var(--gold);
+            color: var(--paper);
+            border: none;
+            font-family: var(--font-accent);
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: background 0.3s;
+            white-space: nowrap;
+        }
+        .newsletter-form button:hover {
+            background: var(--gold-mid);
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        .footer {
+            background: var(--ink);
+            color: var(--earth-light);
+            padding: 3rem 2rem 2rem;
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+        .footer-brand p {
+            font-family: var(--font-accent);
+            font-style: italic;
+            color: var(--earth);
+            font-size: 0.95rem;
+            margin-top: 1rem;
+            max-width: 280px;
+        }
+        .footer-brand .footer-logo {
+            height: 30px;
+            width: auto;
+            opacity: 0.7;
+            filter: invert(1) brightness(0.8);
+        }
+        .footer h4 {
+            font-family: var(--font-accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold-mid);
+            margin-bottom: 1rem;
+        }
+        .footer ul {
+            list-style: none;
+        }
+        .footer li {
+            margin-bottom: 0.5rem;
+        }
+        .footer a {
+            color: var(--earth-light);
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .footer a:hover {
+            color: var(--gold-light);
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(172, 152, 146, 0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--earth);
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .social-links a {
+            color: var(--earth);
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: var(--gold-mid);
+        }
+        .social-links svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ========================================
+           ANIMATIONS
+           ======================================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes gentleBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(6px); }
+        }
+
+        /* Scroll-triggered fade-in */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+        @media (max-width: 900px) {
+            .welcome-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .welcome-text p {
+                max-width: none;
+            }
+            .welcome-visual {
+                order: -1;
+            }
+            .visit-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(250, 245, 239, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 1.5rem 2rem;
+                gap: 1rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .nav-toggle {
+                display: block;
+            }
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
+            .hero-cta-group {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============== NAVIGATION ============== -->
+    <nav class="nav" id="nav">
+        <img src="assets/wordmark.svg" alt="Between the Covers" class="nav-logo">
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#about">Our Story</a></li>
+            <li><a href="#picks">Staff Picks</a></li>
+            <li><a href="#visit">Visit Us</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- ============== HERO ============== -->
+    <section class="hero">
+        <img src="assets/BTCB_Colored_Smaller_SVG.svg" alt="Between the Covers Bookshop" class="hero-emblem">
+        <p class="hero-tagline">Where every story finds its reader</p>
+        <div class="hero-cta-group">
+            <a href="#shop" class="btn btn-primary">Browse Our Shelves</a>
+            <a href="#visit" class="btn btn-secondary">Visit the Shop</a>
+        </div>
+        <div class="scroll-hint">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ============== WELCOME / ABOUT ============== -->
+    <section class="welcome" id="about">
+        <div class="welcome-inner">
+            <div class="welcome-text reveal">
+                <h2>A Bookshop With <em>Soul</em></h2>
+                <p>Nestled inside the Shops at Mud Queen — a quaint farmhouse building shared with fellow independent small businesses — Between the Covers is a place where the love of books is palpable. We believe that every great love story begins with the perfect book.</p>
+                <p>Our shelves are thoughtfully curated with everything from heartwarming novels to magical adventures, new releases to beloved used editions, representing voices and stories from every corner of the world. Whether you wander in for a specific title or just to get lost between the shelves, you'll find something here that speaks to you.</p>
+                <p class="signature">— Julia &amp; Logan</p>
+            </div>
+            <div class="welcome-visual reveal">
+                <!-- Hand-drawn style book stack SVG illustration -->
+                <svg viewBox="0 0 400 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Stack of books -->
+                    <g opacity="0.9">
+                        <!-- Bottom book (wide, dark wine) -->
+                        <rect x="60" y="320" width="260" height="40" rx="3" fill="var(--wine-dark)" stroke="var(--gold-dark)" stroke-width="0.5"/>
+                        <rect x="65" y="325" width="4" height="30" rx="1" fill="var(--gold-mid)" opacity="0.6"/>
+                        <text x="190" y="345" text-anchor="middle" fill="var(--gold-pale)" font-family="var(--font-accent)" font-size="11" font-style="italic" opacity="0.8">Tales of the Unexpected</text>
+                        
+                        <!-- Second book (slightly narrower, gold) -->
+                        <rect x="80" y="278" width="230" height="38" rx="3" fill="var(--gold-dark)" stroke="var(--gold)" stroke-width="0.5"/>
+                        <rect x="85" y="283" width="3" height="28" rx="1" fill="var(--rose-light)" opacity="0.5"/>
+                        <text x="195" y="302" text-anchor="middle" fill="var(--paper-warm)" font-family="var(--font-accent)" font-size="10" font-style="italic" opacity="0.8">Wandering Pages</text>
+                        
+                        <!-- Third book (earth tone) -->
+                        <rect x="70" y="238" width="240" height="36" rx="3" fill="var(--earth)" stroke="var(--earth-dark)" stroke-width="0.5"/>
+                        <rect x="75" y="243" width="3" height="26" rx="1" fill="var(--wine-light)" opacity="0.5"/>
+                        <text x="190" y="260" text-anchor="middle" fill="var(--earth-sand)" font-family="var(--font-accent)" font-size="10" font-style="italic" opacity="0.8">The Quiet Hours</text>
+                        
+                        <!-- Fourth book (wine/rose) -->
+                        <rect x="90" y="200" width="220" height="34" rx="3" fill="var(--wine)" stroke="var(--wine-dark)" stroke-width="0.5"/>
+                        <rect x="95" y="205" width="3" height="24" rx="1" fill="var(--gold-light)" opacity="0.5"/>
+                        <text x="200" y="221" text-anchor="middle" fill="var(--rose-pale)" font-family="var(--font-accent)" font-size="10" font-style="italic" opacity="0.8">Borrowed Light</text>
+                        
+                        <!-- Top book (slightly askew) -->
+                        <g transform="rotate(-4, 200, 180)">
+                            <rect x="95" y="164" width="210" height="32" rx="3" fill="var(--earth-dark)" stroke="var(--earth)" stroke-width="0.5"/>
+                            <rect x="100" y="168" width="3" height="24" rx="1" fill="var(--gold)" opacity="0.6"/>
+                            <text x="200" y="184" text-anchor="middle" fill="var(--gold-light)" font-family="var(--font-accent)" font-size="10" font-style="italic" opacity="0.8">Ink &amp; Ember</text>
+                        </g>
+                    </g>
+                    
+                    <!-- Coffee cup on top -->
+                    <g transform="translate(270, 110)">
+                        <!-- Saucer -->
+                        <ellipse cx="30" cy="55" rx="32" ry="8" fill="var(--earth-sand)" opacity="0.6"/>
+                        <!-- Cup -->
+                        <path d="M10,20 L14,50 Q30,58 46,50 L50,20 Z" fill="var(--paper-warm)" stroke="var(--earth-light)" stroke-width="1"/>
+                        <!-- Handle -->
+                        <path d="M50,25 Q65,30 62,40 Q58,48 50,45" fill="none" stroke="var(--earth-light)" stroke-width="1.5"/>
+                        <!-- Steam -->
+                        <path d="M25,15 Q22,5 28,0" fill="none" stroke="var(--earth-light)" stroke-width="0.8" opacity="0.4" stroke-linecap="round">
+                            <animate attributeName="d" values="M25,15 Q22,5 28,0;M25,15 Q28,5 24,0;M25,15 Q22,5 28,0" dur="3s" repeatCount="indefinite"/>
+                        </path>
+                        <path d="M32,13 Q29,3 35,-2" fill="none" stroke="var(--earth-light)" stroke-width="0.8" opacity="0.3" stroke-linecap="round">
+                            <animate attributeName="d" values="M32,13 Q29,3 35,-2;M32,13 Q35,3 31,-2;M32,13 Q29,3 35,-2" dur="3.5s" repeatCount="indefinite"/>
+                        </path>
+                    </g>
+                    
+                    <!-- Reading glasses -->
+                    <g transform="translate(75, 130)" opacity="0.5">
+                        <circle cx="12" cy="12" r="11" fill="none" stroke="var(--gold)" stroke-width="1.2"/>
+                        <circle cx="38" cy="12" r="11" fill="none" stroke="var(--gold)" stroke-width="1.2"/>
+                        <path d="M23,12 Q25,8 27,12" fill="none" stroke="var(--gold)" stroke-width="1"/>
+                        <path d="M1,12 L-8,8" fill="none" stroke="var(--gold)" stroke-width="1"/>
+                    </g>
+                    
+                    <!-- Small decorative bookmark ribbon -->
+                    <g transform="translate(155, 155)">
+                        <path d="M0,0 L0,55 L6,45 L12,55 L12,0" fill="var(--wine-light)" opacity="0.7"/>
+                    </g>
+                    
+                    <!-- Shadow under stack -->
+                    <ellipse cx="190" cy="370" rx="140" ry="10" fill="var(--earth-dark)" opacity="0.06"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== DECORATIVE DIVIDER ============== -->
+    <div class="divider">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61z"/>
+        </svg>
+    </div>
+
+    <!-- ============== OFFERINGS ============== -->
+    <section class="section offerings" id="shop">
+        <div class="section-header reveal">
+            <h2>What Awaits You</h2>
+            <p>More than a store — a destination for readers</p>
+        </div>
+        <div class="card-grid">
+            <div class="card reveal">
+                <svg class="card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 8c0 0 4-3 12-3s12 3 12 3M4 8v30c0 0 4-3 12-3s12 3 12 3V8M28 8c0 0 4-3 12-3s12 3 12 3M28 8v30c0 0 4-3 12-3s12 3 12 3V8"/>
+                </svg>
+                <h3>Shop Online</h3>
+                <p>Browse our carefully curated collection from the comfort of your reading nook. We ship directly from publishers on most titles — bringing the bookshop to your doorstep without the wait.</p>
+            </div>
+            <div class="card reveal">
+                <svg class="card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="6" y="6" width="36" height="36" rx="4"/>
+                    <path d="M6 18h36M18 18v24"/>
+                    <circle cx="30" cy="30" r="4"/>
+                </svg>
+                <h3>Visit In Person</h3>
+                <p>There's nothing quite like running your fingers along real spines. Come get lost in our shelves, chat with our booksellers, and discover something you didn't know you needed.</p>
+            </div>
+            <div class="card reveal">
+                <svg class="card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 8H8a4 4 0 0 0-4 4v24a4 4 0 0 0 4 4h32a4 4 0 0 0 4-4V20"/>
+                    <path d="M32 4l8 8-20 20H12v-8L32 4z"/>
+                </svg>
+                <h3>Special Orders</h3>
+                <p>Can't find what you're looking for? We'll track it down. From rare editions to the latest releases, if it's in print, we can get it for you — often at publisher-direct speed.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== STAFF PICKS ============== -->
+    <section class="staff-picks" id="picks">
+        <div class="staff-picks-inner">
+            <div class="section-header reveal">
+                <h2>Staff Picks</h2>
+                <p>What we've been reading lately</p>
+            </div>
+            <div class="picks-grid">
+                <div class="pick-card reveal">
+                    <div class="book-spine"></div>
+                    <div class="book-title">Four Thousand Weeks</div>
+                    <div class="book-author">Oliver Burkeman</div>
+                    <div class="book-note">"A beautiful reframe on what it means to spend your limited time well. Changed how I think about productivity — or rather, how to stop thinking about it."</div>
+                    <div class="pick-by">— Logan's pick</div>
+                </div>
+                <div class="pick-card reveal">
+                    <div class="book-spine"></div>
+                    <div class="book-title">The House in the Cerulean Sea</div>
+                    <div class="book-author">TJ Klune</div>
+                    <div class="book-note">"Warm as a blanket, funny as a friend. This is the book I press into every customer's hands when they say 'I just need something good.'"</div>
+                    <div class="pick-by">— Staff pick</div>
+                </div>
+                <div class="pick-card reveal">
+                    <div class="book-spine"></div>
+                    <div class="book-title">Piranesi</div>
+                    <div class="book-author">Susanna Clarke</div>
+                    <div class="book-note">"Strange, gorgeous, and unlike anything else. A book that rewards slow reading and feels like discovering a hidden room in a house you thought you knew."</div>
+                    <div class="pick-by">— Staff pick</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== VISIT US ============== -->
+    <section class="section visit" id="visit">
+        <div class="visit-grid">
+            <div class="visit-info reveal">
+                <h2>Come Find Us</h2>
+                <div class="visit-detail">
+                    <h3>Address</h3>
+                    <p>5933 Linglestown Rd<br>
+                    Harrisburg, PA 17112<br>
+                    <em style="color: var(--earth-light); font-size: 0.9rem;">Inside the Shops at Mud Queen</em></p>
+                </div>
+                <div class="visit-detail">
+                    <h3>Hours</h3>
+                    <p>Tuesday: 4 – 7 PM<br>
+                    Wednesday – Thursday: 10 AM – 6 PM<br>
+                    Friday: 11 AM – 5 PM<br>
+                    Saturday: 10 AM – 5 PM<br>
+                    Sunday: 11 AM – 3 PM<br>
+                    Monday: Closed</p>
+                </div>
+                <div class="visit-detail">
+                    <h3>Get in Touch</h3>
+                    <p><a href="tel:+17174613793" style="color: var(--earth);">(717) 461-3793</a><br>
+                    between.the.covers.bookshop13@gmail.com</p>
+                </div>
+                <a href="https://www.google.com/maps/dir//5933+Linglestown+Rd,+Harrisburg,+PA+17112" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-block; margin-top: 1rem;">Get Directions</a>
+            </div>
+            <div class="map-container reveal">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d760.2459262874488!2d-76.79491485749796!3d40.34271305391946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa64a666ce1de69a9%3A0x11a5b6d416035a4!2sBetween%20the%20Covers%20Bookshop!5e0!3m2!1sen!2sus!4v1779894921415!5m2!1sen!2sus"
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Between the Covers Bookshop location">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== NEWSLETTER ============== -->
+    <section class="newsletter">
+        <div class="newsletter-inner reveal">
+            <h2>Stay Between the Covers</h2>
+            <p>New arrivals, events, and the occasional book recommendation — delivered with care.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent = 'Subscribed ✓';">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============== FOOTER ============== -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="assets/wordmark.svg" alt="Between the Covers" class="footer-logo">
+                <p>An independent bookshop inside the Shops at Mud Queen, Harrisburg, PA. Dedicated to connecting readers with the stories that matter.</p>
+            </div>
+            <div>
+                <h4>Browse</h4>
+                <ul>
+                    <li><a href="#shop">Shop Online</a></li>
+                    <li><a href="#picks">Staff Picks</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Book Clubs</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="#visit">Contact</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Between the Covers Bookshop LLC. All rights reserved.</span>
+            <div class="social-links">
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/_betweenthecoversbookshop_/" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5"/>
+                        <circle cx="12" cy="12" r="5"/>
+                        <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+                    </svg>
+                </a>
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/BetweenTheCoversBookshopLLC/" target="_blank" rel="noopener" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============== SCRIPTS ============== -->
+    <script>
+        // Navbar scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 80);
+        });
+
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        // Close mobile nav on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('open'));
+        });
+
+        // Scroll reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
+
+</body>
+</html>
