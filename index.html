@@ -125,7 +125,7 @@
             inset: 0;
             pointer-events: none;
             z-index: 9999;
-            opacity: 0.025;
+            opacity: 0.016;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
             background-repeat: repeat;
             background-size: 200px;
@@ -223,9 +223,7 @@
             overflow: hidden;
             padding: 2rem;
             background: 
-                radial-gradient(ellipse at 20% 80%, rgba(221, 193, 118, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 20%, rgba(148, 48, 57, 0.05) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(250, 245, 239, 1) 0%, rgba(237, 227, 211, 0.6) 100%);
+                #fde0e0;
         }
 
         /* Decorative book corner flourishes */
@@ -998,11 +996,11 @@
                     
                     <!-- Bookmark ribbon poking out between books 3 and 4 -->
                     <g>
-                        <path d="M220,226 L220,255 L225,248 L230,255 L230,226" fill="var(--wine-light)" opacity="0.7"/>
+                        <path d="M220,230 L220,255 L225,248 L230,255 L230,230" fill="var(--wine-light)" opacity="0.7"/>
                     </g>
 
                     <!-- Reading glasses resting on surface beside the stack -->
-                    <g transform="translate(30, 335)" opacity="0.5">
+                    <g transform="translate(10, 335)" opacity="0.5">
                         <circle cx="12" cy="8" r="10" fill="none" stroke="var(--gold)" stroke-width="1.2"/>
                         <circle cx="36" cy="8" r="10" fill="none" stroke="var(--gold)" stroke-width="1.2"/>
                         <path d="M22,8 Q24,4 26,8" fill="none" stroke="var(--gold)" stroke-width="1"/>
@@ -1068,8 +1066,8 @@
                     <path d="M20 8H8a4 4 0 0 0-4 4v24a4 4 0 0 0 4 4h32a4 4 0 0 0 4-4V20"/>
                     <path d="M32 4l8 8-20 20H12v-8L32 4z"/>
                 </svg>
-                <h3>Special Orders</h3>
-                <p>Can't find what you're looking for? We'll track it down. From rare editions to the latest releases, if it's in print, we can get it for you — often at publisher-direct speed.</p>
+                <h3>Events &amp; Community</h3>
+                <p>From author readings and book signings to book club meetups - there's always something happening between the covers. Check our calendar and enjoy the fun!</p>
             </div>
         </div>
     </section>
