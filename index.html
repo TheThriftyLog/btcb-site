@@ -571,15 +571,15 @@
             transform: translateY(-3px);
         }
 
-        .pick-card .book-spine {
-            width: 4px;
-            height: 50px;
-            border-radius: 2px;
-            margin-bottom: 1.2rem;
+        .pick-card .book-cover {
+            display: block;
+            height: 200px;
+            width: auto;
+            max-width: 100%;
+            border-radius: 3px;
+            margin: 0 auto 1.4rem;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.38);
         }
-        .pick-card:nth-child(1) .book-spine { background: var(--gold-mid); }
-        .pick-card:nth-child(2) .book-spine { background: var(--wine-light); }
-        .pick-card:nth-child(3) .book-spine { background: var(--earth-warm); }
 
         .pick-card .book-title {
             font-family: var(--font-display);
@@ -1081,21 +1081,21 @@
             </div>
             <div class="picks-grid">
                 <div class="pick-card reveal">
-                    <div class="book-spine"></div>
+                    <img class="book-cover" src="assets/covers/Four-Thousand-Weeks-Cover.jpg" alt="Four Thousand Weeks by Oliver Burkeman — book cover" loading="lazy">
                     <div class="book-title">Four Thousand Weeks</div>
                     <div class="book-author">Oliver Burkeman</div>
                     <div class="book-note">"A beautiful reframe on what it means to spend your limited time well. Changed how I think about productivity — or rather, how to stop thinking about it."</div>
                     <div class="pick-by">— Logan's pick</div>
                 </div>
                 <div class="pick-card reveal">
-                    <div class="book-spine"></div>
+                    <img class="book-cover" src="assets/covers/The-House-in-the-Cerulean-Sea-Cover.jpg" alt="The House in the Cerulean Sea by TJ Klune — book cover" loading="lazy">
                     <div class="book-title">The House in the Cerulean Sea</div>
                     <div class="book-author">TJ Klune</div>
                     <div class="book-note">"Warm as a blanket, funny as a friend. This is the book I press into every customer's hands when they say 'I just need something good.'"</div>
                     <div class="pick-by">— Staff pick</div>
                 </div>
                 <div class="pick-card reveal">
-                    <div class="book-spine"></div>
+                    <img class="book-cover" src="assets/covers/Daughter-of-the-Moon-Goddess-Cover.jpg" alt="Daughter of the Moon Goddess by Sue Lynn Tan — book cover" loading="lazy">
                     <div class="book-title">Daughter of the Moon Goddess</div>
                     <div class="book-author">Sue Lynn Tan</div>
                     <div class="book-note">"Epic, lush, and achingly romantic. If you've ever wished you could disappear into a myth and fight your way through it, this is your book."</div>
